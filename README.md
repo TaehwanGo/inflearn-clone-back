@@ -86,6 +86,10 @@ npm i -D @types/node
 npm i typescript
 npm i express // 이것 때문에 한시간 날림, Javascript 버전이 왜 필요한거지?
 
+git checkout -b dev
+
+- dev라는 브랜치를 만들고 그 브랜치로 스위칭
+
 참고문헌
 
 - [typescript을 사용해 express 세팅](https://hckcksrl.medium.com/typescript-%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%B4-express-node-js-%EC%84%B8%ED%8C%85-12bbdd62513f)
