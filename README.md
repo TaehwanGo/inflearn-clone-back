@@ -80,11 +80,15 @@ npm install -g typescript : typescript 설치
 tsc --init : typescript 설정파일 생성(tsconfig.json)
 tsconfig.json 수정
 
-npm install --save-dev nodemon ts-node
-npm install @types/express
-npm i -D @types/node
-npm i typescript
+npm install --save-dev nodemon ts-node<br />
+npm install @types/express<br />
+npm i -D @types/node<br />
+npm i typescript<br />
 npm i express // 이것 때문에 한시간 날림, Javascript 버전이 왜 필요한거지?
+
+git checkout -b dev
+
+- dev라는 브랜치를 만들고 그 브랜치로 스위칭
 
 참고문헌
 
