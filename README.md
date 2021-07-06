@@ -45,6 +45,30 @@
 - [ ] 백엔드 세팅 : Typescript, Express, MySQL, Sequelize, ...
   - [ ] tsconfig.json 파일의 옵션들 공부하기
 - [ ] 테이블 및 관계 구상하기
+
+  - 테이블
+
+    - User : name, email, password
+    - Lecture : name, content
+    - category : name
+    - hashtag : name
+    - Video : name, src
+    - Image : name, src
+    - Review : content, rating
+
+  - 관계
+    - User(강사) : Lecture = 1 : N
+    - User(학생) : Lecture = N : N
+    - Lecture : Video = 1 : N
+    - Lecture : Image = 1 : N
+    - Category : Lecture = 1 : N
+    - Lecture : Hashtag = N : N
+    - Lecture : Video = 1 : N
+    - Lecture : Review = 1 : N
+  - [ ] models 코드 구현
+  - [ ] ERD로 정리
+    - ERD 선정 필요
+
 - [ ] 라우팅
 - [ ] CI / CD 툴 적용
   - ex) Jenkins
@@ -98,4 +122,38 @@ git checkout -b dev
 - [Typescript-express-nojs설정](https://velog.io/@y1andyu/TypeScript-Express-node.js-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
 - [ts-node 관련 에러](https://stackoverflow.com/questions/44764004/ts-node-is-not-recognized-as-an-internal-or-external-command-operable-program)
 
+</details>
+
+<details>
+<summary>2021.07.06(Tony)</summary>
+
+- mysql, sequelize 설치
+
+- npm install --save cors dotenv
+- npm install --save-dev @types/cors
+
+  - 어제 설치한 라이브러리 외 추가로 필요한 라이브러리들 설치
+  - cors, @types/cors : CORS 라이브러리
+
+- npm install --save mysql2 sequelize sequelize-cli
+
+  - mysql2 : 노드와 mysql을 연결시켜주는 드라이버
+
+- npx sequelize-cli init
+
+  - config, models, migration, seeder 각각의 dir 생성
+  - config : sequelize 설정
+  - models : DB models - table, relationship 지정
+  - seeder :
+
+- sequelize config
+
+- models DB Table, relationship
+
+### 참고 문헌
+
+- [NodeJS-Express-Typescript로 Sequelize 환경 구축](https://velog.io/@dlawogus/NodeJS-Express-Typescript%EB%A1%9C-Sequelize%ED%99%98%EA%B2%BD%EA%B5%AC%EC%B6%95)
+- [npm @type/cors](https://www.npmjs.com/package/@types/cors)
+- [ts-nodebird](https://github.com/ZeroCho/ts-nodebird)
+- [sequelize-typescript 공식문서](https://sequelize.org/master/manual/typescript.html)
 </details>
