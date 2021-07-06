@@ -4,6 +4,8 @@
 
 인프런 웹앱을 만들어보는 팀프로젝트
 
+[Inflearn-clone-front repository](https://github.com/MinwooJJ/inflearn-clone-front)
+
 ---
 
 <br />
@@ -75,9 +77,9 @@ github repository 생성
 
 Readme 작성
 
-package 다운
-npm install -g typescript : typescript 설치
-tsc --init : typescript 설정파일 생성(tsconfig.json)
+package 다운<br />
+npm install -g typescript : typescript 설치<br />
+tsc --init : typescript 설정파일 생성(tsconfig.json)<br />
 tsconfig.json 수정
 
 npm install --save-dev nodemon ts-node<br />
