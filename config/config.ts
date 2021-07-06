@@ -18,21 +18,21 @@ interface IConfigGroup {
 export const config: IConfigGroup = {
   development: {
     username: process.env.DB_USERNAME || 'root',
-    password: process.env.DB_PASSWORD,
+    password: process.env.DB_PASSWORD!,
     database: process.env.DB_NAME || 'inflearn-clone',
     host: process.env.DB_HOST || 'localhost',
     dialect: 'mysql',
   },
   test: {
     username: process.env.DB_USERNAME || 'root',
-    password: process.env.DB_PASSWORD,
+    password: process.env.DB_PASSWORD!,
     database: process.env.DB_NAME || 'inflearn-clone',
     host: process.env.DB_HOST || 'localhost',
     dialect: 'mysql',
   },
   production: {
     username: process.env.DB_USERNAME || 'root',
-    password: process.env.DB_PASSWORD,
+    password: process.env.DB_PASSWORD!,
     database: process.env.DB_NAME || 'inflearn-clone',
     host: process.env.DB_HOST || 'localhost',
     dialect: 'mysql',
