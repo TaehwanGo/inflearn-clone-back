@@ -150,6 +150,35 @@ git checkout -b dev
 
 - models DB Table, relationship
 
+
+
+<summary>2021.07.06(Gaic4o)</summary>
+
+`config`
+
+- 부분 type 정의. 
+  
+`models` 
+
+1. comment(댓글)
+2. image(이미지 파일) 
+3. post(게시글) 
+4. user(유저)
+5. video(비디오) 
+  
+`passport` 
+
+1. index.ts (만들어 놓기)
+2. kakao.ts (카카오 로그인) 
+3. local.ts (로컬 로그인)
+
+`routes` 
+
+1. middleware.ts (로그인 동작)
+2. post.ts (게시글에 관련 된 라우터)
+3. user.ts (유저에 관련 된 라우터)
+
+
 ### 참고 문헌
 
 - [NodeJS-Express-Typescript로 Sequelize 환경 구축](https://velog.io/@dlawogus/NodeJS-Express-Typescript%EB%A1%9C-Sequelize%ED%99%98%EA%B2%BD%EA%B5%AC%EC%B6%95)
