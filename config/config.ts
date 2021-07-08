@@ -7,7 +7,8 @@ type Config = {
   password: string;
   database: string;
   host: string;
-  [key: string]: string;
+  port: number;
+  [key: string]: any;
 };
 
 interface IConfigGroup {
@@ -18,24 +19,27 @@ interface IConfigGroup {
 
 const config: IConfigGroup = {
   development: {
-    username: process.env.DB_USERNAME || 'root',
+    username: process.env.DB_USERNAME!,
     password: process.env.DB_PASSWORD!,
-    database: process.env.DB_NAME || 'inflearn-clone',
-    host: process.env.DB_HOST || 'localhost',
+    database: process.env.DB_NAME!,
+    host: process.env.DB_HOST!,
+    port: Number(process.env.DB_PORT) || 3306,
     dialect: 'mysql',
   },
   test: {
-    username: process.env.DB_USERNAME || 'root',
+    username: process.env.DB_USERNAME!,
     password: process.env.DB_PASSWORD!,
-    database: process.env.DB_NAME || 'inflearn-clone',
-    host: process.env.DB_HOST || 'localhost',
+    database: process.env.DB_NAME!,
+    host: process.env.DB_HOST!,
+    port: Number(process.env.DB_PORT) || 3306,
     dialect: 'mysql',
   },
   production: {
-    username: process.env.DB_USERNAME || 'root',
+    username: process.env.DB_USERNAME!,
     password: process.env.DB_PASSWORD!,
-    database: process.env.DB_NAME || 'inflearn-clone',
-    host: process.env.DB_HOST || 'localhost',
+    database: process.env.DB_NAME!,
+    host: process.env.DB_HOST!,
+    port: Number(process.env.DB_PORT) || 3306,
     dialect: 'mysql',
   },
 };

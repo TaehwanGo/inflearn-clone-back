@@ -157,3 +157,68 @@ git checkout -b dev
 - [ts-nodebird](https://github.com/ZeroCho/ts-nodebird)
 - [sequelize-typescript 공식문서](https://sequelize.org/master/manual/typescript.html)
 </details>
+
+<details>
+<summary>2021.07.07(Gaic4o)</summary>
+
+`config`
+
+- 부분 type 정의.
+
+`models`
+
+1. comment(댓글)
+2. image(이미지 파일)
+3. post(게시글)
+4. user(유저)
+5. video(비디오)
+
+`passport`
+
+1. index.ts (만들어 놓기)
+2. kakao.ts (카카오 로그인)
+3. local.ts (로컬 로그인)
+
+`routes`
+
+1. middleware.ts (로그인 동작)
+2. post.ts (게시글에 관련 된 라우터)
+3. user.ts (유저에 관련 된 라우터)
+</details>
+
+<details>
+<summary>2021.07.08(Tony)</summary>
+
+### config/config.ts
+
+type IConfig -> Config
+
+- I는 interface를 명시하기 위해 붙이므로 수정
+
+IConfigGroup의 값을 dotenv 를 사용하여 비공개
+
+- PASSWORD같은 것의 하드코딩을 지양
+- 민수님과 내 local db 이름이 다르므로 전부 dotenv 파일에 넣어서 사용
+
+models/user.ts
+
+- userId -> email : column 명 변경
+
+models/post.ts -> lecture.ts 파일명 변경
+
+- UserId : number -> column 삭제 : 나중에 필요하면 추가할 예정
+
+models/comment.ts -> review.ts 파일명 변경
+
+### 문제점
+
+db연결이 안되는 중
+
+- ConnectionError [SequelizeConnectionError]: Unknown database 'inflearn-clone'
+- Error: Unknown database 'inflearn-clone'
+- 문제 해결을 위한 노력
+  - sequelize.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
+  - DB 연결 후 연결하려는 database의 이름과 일치하는게 없으면 만들게 함
+    - 아직 해결 안됨
+
+</details>
