@@ -150,8 +150,17 @@ git checkout -b dev
 
 - models DB Table, relationship
 
+### 참고 문헌
+
+- [NodeJS-Express-Typescript로 Sequelize 환경 구축](https://velog.io/@dlawogus/NodeJS-Express-Typescript%EB%A1%9C-Sequelize%ED%99%98%EA%B2%BD%EA%B5%AC%EC%B6%95)
+- [npm @type/cors](https://www.npmjs.com/package/@types/cors)
+- [ts-nodebird](https://github.com/ZeroCho/ts-nodebird)
+- [sequelize-typescript 공식문서](https://sequelize.org/master/manual/typescript.html)
+</details>
 
 
+
+<details>
 <summary>2021.07.06(Gaic4o)</summary>
 
 `config`
@@ -160,29 +169,34 @@ git checkout -b dev
   
 `models` 
 
-1. comment(댓글)
-2. image(이미지 파일) 
-3. post(게시글) 
-4. user(유저)
-5. video(비디오) 
+1. comment(댓글) - 타입 정의 + content Text type  
+
+2. image(이미지 파일)  - 타입 정의 + src STRING Type 
+
+3. post(게시글) - 타입 정의 + id, content(내용), UserId(유저아이디) Model + Content Text type 
+      `video type 추가 할 계획.`
+
+4. user(유저) - 타입 정의 + UserId(유저 아이디), nickname(닉네임), passWord(비밀번호) + email(이메일)  
+
   
 `passport` 
 
-1. index.ts (만들어 놓기)
+1. index.ts (만들어 놓기) 
 2. kakao.ts (카카오 로그인) 
-3. local.ts (로컬 로그인)
+3. local.ts (로컬 로그인) - 로그인 가입한 userId 값이 없는 경우()
 
 `routes` 
 
 1. middleware.ts (로그인 동작)
 2. post.ts (게시글에 관련 된 라우터)
 3. user.ts (유저에 관련 된 라우터)
+4. video.ts (video 업로드 파일 저장) 
 
 
-### 참고 문헌
+### 참고 문헌 
 
-- [NodeJS-Express-Typescript로 Sequelize 환경 구축](https://velog.io/@dlawogus/NodeJS-Express-Typescript%EB%A1%9C-Sequelize%ED%99%98%EA%B2%BD%EA%B5%AC%EC%B6%95)
-- [npm @type/cors](https://www.npmjs.com/package/@types/cors)
-- [ts-nodebird](https://github.com/ZeroCho/ts-nodebird)
-- [sequelize-typescript 공식문서](https://sequelize.org/master/manual/typescript.html)
+- [middleware 란?](https://psyhm.tistory.com/8)
+- [kakao 로그인](https://darrengwon.tistory.com/211)
+- [업로드 비디오 서버에 어떻게 저장?](https://ji-gwang.tistory.com/26)
+
 </details>

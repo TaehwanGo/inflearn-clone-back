@@ -16,7 +16,7 @@ class User extends Model {
     public userId!: string;
     public nickName!: string;
     public passWord!: string; 
-
+    public email!: string;
 }
 
 User.init({
@@ -32,7 +32,11 @@ User.init({
     passWord: {
         type: DataTypes.STRING(90),
         allowNull: false,
-    }
+    },
+    email: {
+        type: DataTypes.STRING(40), 
+        allowNull: false,
+    },
 }, {
     sequelize,
     modelName: 'User',
