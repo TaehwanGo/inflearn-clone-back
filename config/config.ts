@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv';
+
 dotenv.config();
 
 type Config = {
@@ -15,7 +16,7 @@ interface IConfigGroup {
   production: Config;
 }
 
-export const config: IConfigGroup = {
+const config: IConfigGroup = {
   development: {
     username: process.env.DB_USERNAME || 'root',
     password: process.env.DB_PASSWORD!,
@@ -38,3 +39,5 @@ export const config: IConfigGroup = {
     dialect: 'mysql',
   },
 };
+
+export default config;
