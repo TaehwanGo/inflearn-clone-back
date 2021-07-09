@@ -13,7 +13,14 @@ const env =
 
 const { database } = config[env];
 
-sequelize.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
+// sequelize
+//   .query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`)
+//   .then(() => {
+//     console.log('db 생성');
+//   })
+//   .catch(err => {
+//     console.error(err);
+//   });
 
 sequelize
   .sync({ force: false })

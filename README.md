@@ -222,3 +222,19 @@ db연결이 안되는 중
     - 아직 해결 안됨
 
 </details>
+
+<details>
+<summary>2021.07.09(Tony)</summary>
+
+MySQL에서 SCHEMA == DATABASE
+
+DB 연결문제 해결 중
+
+- SHOW GLOBAL VARIABLES LIKE 'PORT'; -> mysql 접속 후 확인 3306
+- mysql 터미널로 직접 접속해서 수동으로 DB생성
+  - CREATE DATABASE (dbname)
+    - dbname : inflearn-clone으로 하니까 생성 안됨
+      - inflearn으로 생성
+- 연결 문제 해결 됨
+
+</details>
