@@ -4,7 +4,11 @@
   "description": "## 📖 개요(Summary)",
   "main": "index.ts",
   "scripts": {
+<<<<<<< HEAD
     "dev": "nodemon"
+=======
+    "start": "nodemon --exec ts-node index.ts"
+>>>>>>> dbd96c280ad52b666dbab7de1eda9b92c2a3e974
   },
   "author": "TaehwanGo | Gaic4o",
   "license": "ISC",

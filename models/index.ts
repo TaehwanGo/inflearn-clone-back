@@ -1,23 +1,27 @@
 import Image, { associate as associateImage } from './image';
 import User, { associate as associateUser } from './user';
 import Video, { associate as associateVideo } from './video';
-import Comment, { associate as associateComment } from './comment';
-import Post, { associate as associatePost } from './post';
+import Review, { associate as associateReview } from './review';
+import Lecture, { associate as associateLecture } from './lecture';
 
 export * from './sequelize';
 const db = {
-    Comment,
-    Video, 
-    User,
-    Image,
-    Post,
+  Review,
+  Video,
+  User,
+  Image,
+  Lecture,
 };
 
 export type dbType = typeof db;
 
-associateComment(db);
+associateReview(db);
 associateVideo(db);
 associateUser(db);
 associateImage(db);
+<<<<<<< HEAD
 associatePost(db);
 
+=======
+associateLecture(db);
+>>>>>>> dbd96c280ad52b666dbab7de1eda9b92c2a3e974

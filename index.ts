@@ -1,8 +1,6 @@
 import * as express from 'express';
-import * as morgan from 'morgan';
-import * as cookieParser from 'cookie-parser';
-import * as expressSession from 'express-session';
 import * as dotenv from 'dotenv';
+<<<<<<< HEAD
 import * as passport from 'passport';
 import * as hpp from 'hpp';
 import * as helmet from 'helmet'; 
@@ -71,3 +69,39 @@ app.get('/', (req, res) => {
 app.listen(prod ? process.env.PORT : 3060, () => {
   console.log(`server is running on ${process.env.PORT}`);
 });
+=======
+import { sequelize } from './models';
+import config from './config/config';
+
+dotenv.config();
+
+const app = express();
+
+const env =
+  (process.env.NODE_ENV as 'production' | 'test' | 'development') ||
+  'development';
+
+const { database } = config[env];
+
+// sequelize
+//   .query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`)
+//   .then(() => {
+//     console.log('db 생성');
+//   })
+//   .catch(err => {
+//     console.error(err);
+//   });
+
+sequelize
+  .sync({ force: false })
+  .then(() => {
+    console.log('db 연결 성공');
+  })
+  .catch(console.error);
+
+app.get('/', (req: express.Request, res: express.Response) => {
+  res.send('inflearn home');
+});
+
+app.listen(4000, () => console.log('server is running'));
+>>>>>>> dbd96c280ad52b666dbab7de1eda9b92c2a3e974
