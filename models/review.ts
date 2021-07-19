@@ -5,9 +5,7 @@ import User from './user';
 
 class Review extends Model {
   public id!: number;
-
   public content!: string;
-
   public readonly User?: User;
 }
 

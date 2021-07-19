@@ -1,17 +1,28 @@
-import { DataTypes, Model } from 'sequelize';
 import { sequelize } from './sequelize';
 import { dbType } from './index';
+import {
+  Association,
+  BelongsToManyAddAssociationMixin, BelongsToManyRemoveAssociationMixin,
+  DataTypes,
+  HasManyAddAssociationMixin,
+  HasManyAddAssociationsMixin,
+  Model,
+} from 'sequelize';
 
 class Lecture extends Model {
+  public title!: string;
   public id!: number;
-
   public content!: string;
 }
 
 Lecture.init(
   {
+    title: {
+      type: DataTypes.STRING(70),
+      allowNull: false,
+    },
     content: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(200),
       allowNull: false,
     },
   },

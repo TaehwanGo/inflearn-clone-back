@@ -19,9 +19,5 @@ associateReview(db);
 associateVideo(db);
 associateUser(db);
 associateImage(db);
-<<<<<<< HEAD
-associatePost(db);
-
-=======
 associateLecture(db);
->>>>>>> dbd96c280ad52b666dbab7de1eda9b92c2a3e974
+
