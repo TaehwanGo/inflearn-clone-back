@@ -3,25 +3,28 @@ import { dbType } from './index';
 import { sequelize } from './sequelize';
 
 class Image extends Model {
-    public id!: number;
-    public src!: string;
+  public id!: number;
+  public src!: string;
 }
 
-Image.init({
+Image.init(
+  {
     src: {
-        type: DataTypes.STRING(200),
-        allowNull: false,
+      type: DataTypes.STRING(200),
+      allowNull: false,
     },
-}, {
+  },
+  {
     sequelize,
     modelName: 'Image',
     tableName: 'image',
     charset: 'utf8',
     collate: 'utf8_general_ci',
-});
+  },
+);
 
 export const associate = (db: dbType) => {
-    db.Image.belongsTo(db.Post); 
+  db.Image.belongsTo(db.Lecture);
 };
 
-export default Image; 
+export default Image;

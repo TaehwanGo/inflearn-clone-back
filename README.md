@@ -6,7 +6,7 @@
 
 [Inflearn-clone-front repository](https://github.com/MinwooJJ/inflearn-clone-front)
 
----
+
 
 <br />
 
@@ -15,7 +15,7 @@
 - 팀프로젝트 및 협업 경험
 - Hard skill 및 Soft skill 향상
 
----
+
 
 <br />
 
@@ -23,7 +23,7 @@
 
 2021.07.05 ~ 진행중
 
----
+
 
 <br />
 
@@ -36,7 +36,6 @@
 - Auth : Passport
 - Etc : multer, bcrypt, env, CORS, ...
 
----
 
 <br />
 
@@ -76,7 +75,7 @@
 - [ ] 문서 정리
   - ex) Swagger
 
----
+
 
 <br />
 
@@ -85,11 +84,12 @@
 - 로그인
 - 강의 CRUD
 
----
+
 
 <br />
 
 ## 📗 작업 내용
+
 
 <details>
 <summary>2021.07.05(Tony)</summary>
@@ -152,6 +152,7 @@ git checkout -b dev
 
 ### 참고 문헌
 
+
 - [NodeJS-Express-Typescript로 Sequelize 환경 구축](https://velog.io/@dlawogus/NodeJS-Express-Typescript%EB%A1%9C-Sequelize%ED%99%98%EA%B2%BD%EA%B5%AC%EC%B6%95)
 - [npm @type/cors](https://www.npmjs.com/package/@types/cors)
 - [ts-nodebird](https://github.com/ZeroCho/ts-nodebird)
@@ -160,14 +161,25 @@ git checkout -b dev
 
 
 
+- [NodeJS-Express-Typescript로 Sequelize 환경 구축](https://velog.io/@dlawogus/NodeJS-Express-Typescript%EB%A1%9C-Sequelize%ED%99%98%EA%B2%BD%EA%B5%AC%EC%B6%95)
+- [npm @type/cors](https://www.npmjs.com/package/@types/cors)
+- [ts-nodebird](https://github.com/ZeroCho/ts-nodebird)
+- [sequelize-typescript 공식문서](https://sequelize.org/master/manual/typescript.html)
+</details>
+
 <details>
+
 <summary>2021.07.06(Gaic4o)</summary>
+
+<summary>2021.07.07(Gaic4o)</summary>
+
 
 `config`
 
-- 부분 type 정의. 
-  
-`models` 
+- 부분 type 정의.
+
+`models`
+
 
 1. comment(댓글) - 타입 정의 + content Text type  
 
@@ -185,12 +197,32 @@ git checkout -b dev
 2. kakao.ts (카카오 로그인) 
 3. local.ts (로컬 로그인) - 로그인 가입한 userId 값이 없는 경우()
 
-`routes` 
+1. comment(댓글)
+2. image(이미지 파일)
+3. post(게시글)
+4. user(유저)
+5. video(비디오)
+
+`passport`
+
+1. index.ts (만들어 놓기)
+2. kakao.ts (카카오 로그인)
+3. local.ts (로컬 로그인)
+
+
+`routes`
 
 1. middleware.ts (로그인 동작)
 2. post.ts (게시글에 관련 된 라우터)
 3. user.ts (유저에 관련 된 라우터)
+
 4. video.ts (video 업로드 파일 저장) 
+
+</details>
+
+
+<details>
+<summary>2021.07.08(Tony)</summary>
 
 
 ### 참고 문헌 
@@ -198,5 +230,54 @@ git checkout -b dev
 - [middleware 란?](https://psyhm.tistory.com/8)
 - [kakao 로그인](https://darrengwon.tistory.com/211)
 - [업로드 비디오 서버에 어떻게 저장?](https://ji-gwang.tistory.com/26)
+
+### config/config.ts
+
+type IConfig -> Config
+
+- I는 interface를 명시하기 위해 붙이므로 수정
+
+IConfigGroup의 값을 dotenv 를 사용하여 비공개
+
+- PASSWORD같은 것의 하드코딩을 지양
+- 민수님과 내 local db 이름이 다르므로 전부 dotenv 파일에 넣어서 사용
+
+models/user.ts
+
+- userId -> email : column 명 변경
+
+models/post.ts -> lecture.ts 파일명 변경
+
+- UserId : number -> column 삭제 : 나중에 필요하면 추가할 예정
+
+models/comment.ts -> review.ts 파일명 변경
+
+### 문제점
+
+db연결이 안되는 중
+
+- ConnectionError [SequelizeConnectionError]: Unknown database 'inflearn-clone'
+- Error: Unknown database 'inflearn-clone'
+- 문제 해결을 위한 노력
+  - sequelize.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
+  - DB 연결 후 연결하려는 database의 이름과 일치하는게 없으면 만들게 함
+    - 아직 해결 안됨
+
+</details>
+
+<details>
+<summary>2021.07.09(Tony)</summary>
+
+MySQL에서 SCHEMA == DATABASE
+
+DB 연결문제 해결 중
+
+- SHOW GLOBAL VARIABLES LIKE 'PORT'; -> mysql 접속 후 확인 3306
+- mysql 터미널로 직접 접속해서 수동으로 DB생성
+  - CREATE DATABASE (dbname)
+    - dbname : inflearn-clone으로 하니까 생성 안됨
+      - inflearn으로 생성
+- 연결 문제 해결 됨
+
 
 </details>

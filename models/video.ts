@@ -1,30 +1,32 @@
 import { DataTypes, Model } from 'sequelize';
 import { sequelize } from './sequelize';
 import { dbType } from './index';
-import Post from './post';
-import Comment from './comment';
 
 class Video extends Model {
-    public id!: number;
-    public videoMp!: string;
+  public id!: number;
+
+  public videoMp!: string;
 }
 
-Video.init({
+Video.init(
+  {
     videoMp: {
-        type: DataTypes.STRING(50),
-        allowNull: false,
-    }
-}, {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+    },
+  },
+  {
     sequelize,
     modelName: 'Video',
     tableName: 'video',
     charset: 'utf8',
-    collate: 'utf8_general_ci', 
-});
+    collate: 'utf8_general_ci',
+  },
+);
 
 export const associate = (db: dbType) => {
-    db.User.hasMany(db.Post);
-    db.User.hasMany(db.Comment); 
+  db.User.hasMany(db.Lecture);
+  db.User.hasMany(db.Review);
 };
 
 export default Video;
