@@ -226,15 +226,69 @@ db연결이 안되는 중
 <details>
 <summary>2021.07.09(Tony)</summary>
 
+### DB연결 문제
+
 MySQL에서 SCHEMA == DATABASE
 
 DB 연결문제 해결 중
 
 - SHOW GLOBAL VARIABLES LIKE 'PORT'; -> mysql 접속 후 확인 3306
 - mysql 터미널로 직접 접속해서 수동으로 DB생성
+  - https://carpet-part1.tistory.com/317
   - CREATE DATABASE (dbname)
     - dbname : inflearn-clone으로 하니까 생성 안됨
       - inflearn으로 생성
 - 연결 문제 해결 됨
+
+### eslint rule 수정
+
+```json
+    "lines-between-class-members": [
+      "error",
+      "always",
+      { "exceptAfterSingleLine": true }
+    ]
+```
+
+### sequelize with Typescript
+
+#### strict type-checking
+
+```typescript
+interface UserAttributes {
+  id: number;
+  email: string;
+  nickName: string | null;
+  password: string;
+}
+
+interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
+
+class User
+  extends Model<UserAttributes, UserCreationAttributes>
+  implements UserAttributes
+{
+  public id!: number;
+  public email!: string;
+  public nickName!: string;
+  public password!: string;
+
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+}
+```
+
+#### usage without strict types for attributes
+
+```Typescript
+class User extends Model {
+  public id!: number;
+  public email!: string;
+  public nickName!: string;
+  public password!: string;
+}
+```
+
+user에만 strict으로 적용해보고 나중에 무슨 차이가 있는지 확인해보자.
 
 </details>
