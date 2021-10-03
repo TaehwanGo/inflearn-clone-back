@@ -4,6 +4,7 @@ import * as cors from 'cors';
 import { sequelize } from './models';
 import config from './config/config';
 import lectureRouter from './routes/lecture';
+import testRouter from './routes/test';
 
 dotenv.config();
 
@@ -41,9 +42,13 @@ app.use(
 app.use(express.json()); // front에서 json형태의 data를 보낼때 그것을 req.body에 넣어줌
 app.use(express.urlencoded({ extended: true })); // form&submit을 하면 url encoded방식으로 data가 넘어오는데 그것을 req.body에 넣어줌
 
+app.use('/test', testRouter);
+
 app.use('/create_course', lectureRouter);
 
 app.get('/', (req: express.Request, res: express.Response) => {
+  // console.log('req', req);
+  // console.log('res', res);
   res.send('inflearn home');
 });
 
